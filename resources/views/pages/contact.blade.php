@@ -64,15 +64,15 @@
 
 
         {{-- =========================================================
-            CONTACT INFORMATION
+            SEND A MESSAGE
         ========================================================= --}}
-        <section class="bg-white px-6 py-24 sm:px-8 lg:px-12 lg:py-36">
+        <section id="send-message" class="scroll-mt-10 bg-white px-6 py-24 sm:px-8 lg:px-12 lg:py-36">
 
             <div class="mx-auto w-full max-w-7xl">
 
                 <div class="grid gap-16 lg:grid-cols-[1fr_420px] lg:gap-24">
 
-                    {{-- LEFT --}}
+                    {{-- LEFT — FORM --}}
                     <div>
 
                         <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
@@ -95,10 +95,159 @@
                             brand, I'm always open to discussing new ideas and projects.
                         </p>
 
+
+                        @if (session('status'))
+
+                            <div class="mt-8 max-w-xl border border-gold/40 bg-gold/5 px-6 py-4 text-sm text-charcoal">
+                                {{ session('status') }}
+                            </div>
+
+                        @endif
+
+
+                        <form
+                            method="POST"
+                            action="{{ route('contact.store') }}"
+                            class="mt-10 max-w-xl space-y-8"
+                        >
+
+                            @csrf
+
+                            {{-- Honeypot — hidden from real visitors --}}
+                            <div class="hidden" aria-hidden="true">
+
+                                <label for="website">
+                                    Website
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="website"
+                                    id="website"
+                                    tabindex="-1"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+
+                            <div class="grid gap-8 sm:grid-cols-2">
+
+                                {{-- NAME --}}
+                                <div>
+
+                                    <label
+                                        for="name"
+                                        class="text-[9px] uppercase tracking-[0.25em] text-muted"
+                                    >
+                                        Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        value="{{ old('name') }}"
+                                        required
+                                        class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
+                                        placeholder="Your name"
+                                    >
+
+                                    @error('name')
+
+                                        <p class="mt-2 text-[11px] text-red-600">
+                                            {{ $message }}
+                                        </p>
+
+                                    @enderror
+
+                                </div>
+
+
+                                {{-- EMAIL --}}
+                                <div>
+
+                                    <label
+                                        for="email"
+                                        class="text-[9px] uppercase tracking-[0.25em] text-muted"
+                                    >
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        value="{{ old('email') }}"
+                                        required
+                                        class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
+                                        placeholder="you@email.com"
+                                    >
+
+                                    @error('email')
+
+                                        <p class="mt-2 text-[11px] text-red-600">
+                                            {{ $message }}
+                                        </p>
+
+                                    @enderror
+
+                                </div>
+
+                            </div>
+
+
+                            {{-- MESSAGE --}}
+                            <div>
+
+                                <label
+                                    for="message"
+                                    class="text-[9px] uppercase tracking-[0.25em] text-muted"
+                                >
+                                    Message
+                                </label>
+
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    rows="5"
+                                    required
+                                    class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
+                                    placeholder="Tell me about your project..."
+                                >{{ old('message') }}</textarea>
+
+                                @error('message')
+
+                                    <p class="mt-2 text-[11px] text-red-600">
+                                        {{ $message }}
+                                    </p>
+
+                                @enderror
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="group inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
+                            >
+
+                                <span>
+                                    Send Message
+                                </span>
+
+                                <span class="text-base transition-transform duration-300 group-hover:translate-x-1">
+                                    →
+                                </span>
+
+                            </button>
+
+                        </form>
+
                     </div>
 
 
-                    {{-- RIGHT --}}
+                    {{-- RIGHT — DIRECT CONTACT --}}
                     <div class="border-t border-charcoal/10 pt-6">
 
                         {{-- Email --}}
@@ -109,10 +258,10 @@
                             </p>
 
                             <a
-                                href="mailto:mangadrian2@email.com"
+                                href="mailto:mangadrian2@gmail.com"
                                 class="mt-3 inline-block text-lg text-charcoal transition-colors duration-300 hover:text-gold"
                             >
-                                mangadrian2@email.com
+                                mangadrian2@gmail.com
                             </a>
 
                         </div>
@@ -252,7 +401,7 @@
 
                     {{-- LinkedIn --}}
                     <a
-                        href="#"
+                        href="https://www.linkedin.com/in/i-nyoman-adrian-bayu-mahotama-307717431"
                         class="group flex items-center justify-between py-7 sm:pl-8"
                     >
 
@@ -263,7 +412,7 @@
                             </p>
 
                             <p class="mt-2 text-sm text-charcoal">
-                                @username
+                                I Nyoman Adrian Bayu Mahotama
                             </p>
 
                         </div>
@@ -307,7 +456,7 @@
                 <div class="mt-10">
 
                     <a
-                        href="mailto:mangadrian2@email.com"
+                        href="mailto:mangadrian2@gmail.com"
                         class="group inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
                     >
 

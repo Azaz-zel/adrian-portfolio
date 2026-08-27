@@ -787,7 +787,7 @@
 
 
                         <a
-                            href="#"
+                            href="{{ route('work.pkkmb') }}"
                             class="group inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
                         >
 

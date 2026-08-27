@@ -37,21 +37,23 @@
                     <div>
 
                         <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
-                            01 — Selected Project
+                            03 — Selected Project
                         </p>
 
                         <h1 class="mt-5 max-w-5xl font-serif text-5xl leading-[0.92] tracking-[-0.03em] text-charcoal sm:text-6xl lg:text-7xl xl:text-8xl">
 
-                            Ralph de
+                            PKKMB
 
                             <span class="italic text-gold">
-                                Vinca
+                                INSTIKI
                             </span>
+
+                            2026
 
                         </h1>
 
-                        <p class="mt-5 text-[15px] uppercase tracking-[0.3em] text-muted">
-                            Perfumary
+                        <p class="mt-5 text-[10px] uppercase tracking-[0.3em] text-muted">
+                            Student Attendance System
                         </p>
 
                     </div>
@@ -61,7 +63,7 @@
                     <div>
 
                         <p class="text-sm leading-7 text-muted sm:text-[15px]">
-                            A fragrance platform combining structured content, database-driven perfume information, and a refined responsive interface.
+                            A centralized attendance platform built to manage students, classes, sessions, and administrative roles during PKKMB.
                         </p>
 
                     </div>
@@ -84,8 +86,8 @@
                 <div class="overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
 
                     <img
-                        src="{{ asset('images/projects/ralph-home.jpg') }}"
-                        alt="Ralph de Vinca Homepage"
+                        src="{{ asset('images/projects/absensi-mahasiswa.png') }}"
+                        alt="PKKMB INSTIKI 2026 Student Attendance"
                         class="block h-auto w-full"
                     >
 
@@ -115,24 +117,23 @@
 
                         <h2 class="mt-5 max-w-3xl font-serif text-4xl leading-[1.05] tracking-[-0.02em] text-charcoal sm:text-5xl">
 
-                            Building a digital space for the world of fragrance.
+                            Bringing structure to a large-scale student event.
 
                         </h2>
 
                         <div class="mt-8 max-w-2xl">
 
                             <p class="text-sm leading-8 text-muted sm:text-[15px]">
-                                Ralph de Vinca Perfumary was designed as an
-                                informational and educational platform centered
-                                around the world of fragrance.
+                                PKKMB INSTIKI 2026 required a reliable way to
+                                track attendance across many classes, sessions,
+                                and hundreds of students throughout the event.
                             </p>
 
                             <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
-                                The experience combines editorial-style
-                                storytelling with structured fragrance data,
-                                allowing visitors to explore perfumes,
-                                fragrance notes, ingredients, and educational
-                                content in a refined and approachable interface.
+                                The system was built to give administrators and
+                                session PJs (persons in charge) a clear, centralized
+                                view of attendance in real time, replacing manual
+                                and paper-based recording.
                             </p>
 
                         </div>
@@ -195,7 +196,7 @@
                             <span class="text-right text-sm leading-6 text-charcoal">
                                 PHP / Laravel<br>
                                 Blade / Tailwind CSS<br>
-                                JavaScript / MySQL
+                                MySQL
                             </span>
 
                         </div>
@@ -211,7 +212,7 @@
 
 
         {{-- =========================================================
-            EXPLORE EXPERIENCE
+            EXPLORE THE SYSTEM
         ========================================================= --}}
         <section class="bg-white px-6 py-24 sm:px-8 lg:px-12 lg:py-36">
 
@@ -224,15 +225,15 @@
                     <div>
 
                         <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
-                            Explore the Experience
+                            Explore the System
                         </p>
 
                         <h2 class="mt-5 font-serif text-4xl leading-[1] tracking-[-0.02em] text-charcoal sm:text-5xl lg:text-6xl">
 
-                            Designed around
+                            Built for admins,
 
                             <span class="italic text-gold">
-                                knowledge & identity.
+                                PJs & students.
                             </span>
 
                         </h2>
@@ -244,10 +245,9 @@
                     <div>
 
                         <p class="text-sm leading-7 text-muted sm:text-[15px]">
-                            The experience combines fragrance education with the
-                            story and identity behind Ralph de Vinca, creating
-                            a digital space that feels informative, elegant,
-                            and personal.
+                            Different roles get access to the information and
+                            actions relevant to them, from managing sessions
+                            to reviewing attendance recaps.
                         </p>
 
                     </div>
@@ -257,15 +257,15 @@
 
 
                 {{-- =====================================================
-                    SCREENSHOT 02 — ACADEMY
+                    SCREENSHOT — ADMIN DASHBOARD
                 ====================================================== --}}
                 <div class="mt-16 lg:mt-24">
 
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/ralph-explore.png') }}"
-                            alt="Ralph de Vinca Fragrance Academy"
+                            src="{{ asset('images/projects/dashboard-admin.png') }}"
+                            alt="PKKMB Admin Dashboard"
                             class="block h-auto w-full"
                         >
 
@@ -275,14 +275,13 @@
                     <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
 
                         <h3 class="font-serif text-3xl text-charcoal sm:text-4xl">
-                            Fragrance Academy
+                            Admin Dashboard
                         </h3>
 
                         <p class="text-sm leading-7 text-muted">
-                            An educational space designed to introduce visitors
-                            to the world of fragrance, helping them understand
-                            perfume, fragrance notes, ingredients, and the
-                            fundamentals behind perfumery.
+                            Gives administrators full visibility over classes,
+                            sessions, students, and account roles across the
+                            entire event.
                         </p>
 
                     </div>
@@ -292,15 +291,15 @@
 
 
                 {{-- =====================================================
-                    SCREENSHOT 03 — ABOUT
+                    SCREENSHOT — PJ DASHBOARD
                 ====================================================== --}}
                 <div class="mt-24 lg:mt-36">
 
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/ralph-detail.png') }}"
-                            alt="About Ralph de Vinca Perfumary"
+                            src="{{ asset('images/projects/dashboard-pj.png') }}"
+                            alt="PKKMB PJ Dashboard"
                             class="block h-auto w-full"
                         >
 
@@ -310,14 +309,47 @@
                     <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
 
                         <h3 class="font-serif text-3xl text-charcoal sm:text-4xl">
-                            The Story Behind Ralph de Vinca
+                            PJ Dashboard
                         </h3>
 
                         <p class="text-sm leading-7 text-muted">
-                            The About page introduces the identity and story
-                            behind Ralph de Vinca, giving visitors a deeper
-                            understanding of the brand, its direction, and
-                            the idea behind the digital experience.
+                            A focused view for session PJs to record and
+                            monitor attendance for the classes under their
+                            responsibility.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                {{-- =====================================================
+                    SCREENSHOT — ATTENDANCE RECAP
+                ====================================================== --}}
+                <div class="mt-24 lg:mt-36">
+
+                    <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
+
+                        <img
+                            src="{{ asset('images/projects/rekap-kehadiran.png') }}"
+                            alt="PKKMB Attendance Recap"
+                            class="block h-auto w-full"
+                        >
+
+                    </div>
+
+
+                    <div class="mt-8 grid gap-8 lg:grid-cols-[1fr_320px] lg:items-start">
+
+                        <h3 class="font-serif text-3xl text-charcoal sm:text-4xl">
+                            Attendance Recap
+                        </h3>
+
+                        <p class="text-sm leading-7 text-muted">
+                            A summarized, exportable view of attendance data
+                            across classes and sessions, built to support
+                            reporting after the event.
                         </p>
 
                     </div>
@@ -348,10 +380,10 @@
 
                         <h2 class="mt-5 max-w-3xl font-serif text-4xl leading-[1.05] tracking-[-0.02em] text-charcoal sm:text-5xl lg:text-6xl">
 
-                            From structured data
+                            From attendance data
 
                             <span class="italic text-gold">
-                                to user experience.
+                                to clear reporting.
                             </span>
 
                         </h2>
@@ -362,9 +394,9 @@
                     <div>
 
                         <p class="text-sm leading-7 text-muted sm:text-[15px]">
-                            The project was developed as a fullstack application,
-                            with the backend and database supporting the content
-                            presented through the frontend experience.
+                            The system was developed as a fullstack application,
+                            with role-based access and a database structured
+                            around classes, sessions, and attendance records.
                         </p>
 
                     </div>
@@ -383,12 +415,12 @@
                         </span>
 
                         <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Dynamic Content
+                            Role-Based Access
                         </h3>
 
                         <p class="mt-3 text-sm leading-6 text-muted">
-                            Perfume and fragrance information is managed
-                            through structured database content.
+                            Separate access and views for admins, PJs, and
+                            other administrative roles.
                         </p>
 
                     </div>
@@ -402,12 +434,12 @@
                         </span>
 
                         <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Fragrance Discovery
+                            Class & Session Management
                         </h3>
 
                         <p class="mt-3 text-sm leading-6 text-muted">
-                            Visitors can explore perfumes, notes, categories,
-                            and fragrance-related information.
+                            Structured management of classes, sessions, and
+                            the students assigned to them.
                         </p>
 
                     </div>
@@ -421,12 +453,12 @@
                         </span>
 
                         <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Structured Backend
+                            Attendance Recording
                         </h3>
 
                         <p class="mt-3 text-sm leading-6 text-muted">
-                            Laravel handles routes, controllers, models,
-                            database interaction, and application logic.
+                            Centralized recording of student attendance
+                            across every session.
                         </p>
 
                     </div>
@@ -440,121 +472,12 @@
                         </span>
 
                         <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Responsive Interface
+                            Recap & Reporting
                         </h3>
 
                         <p class="mt-3 text-sm leading-6 text-muted">
-                            The interface is designed to remain clear and
-                            usable across different screen sizes.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        {{-- =========================================================
-            DESIGN DIRECTION
-        ========================================================= --}}
-        <section class="bg-white px-6 py-24 sm:px-8 lg:px-12 lg:py-36">
-
-            <div class="mx-auto w-full max-w-7xl">
-
-                <div class="grid gap-16 lg:grid-cols-[1fr_1fr] lg:gap-24">
-
-                    {{-- LEFT --}}
-                    <div>
-
-                        <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
-                            Design Direction
-                        </p>
-
-                        <h2 class="mt-5 max-w-xl font-serif text-4xl leading-[1.05] tracking-[-0.02em] text-charcoal sm:text-5xl">
-
-                            Refined, editorial, and intentionally minimal.
-
-                        </h2>
-
-                    </div>
-
-
-                    {{-- RIGHT --}}
-                    <div class="max-w-xl">
-
-                        <p class="text-sm leading-8 text-muted sm:text-[15px]">
-                            The visual direction takes inspiration from luxury
-                            fragrance brands and editorial publications.
-                        </p>
-
-                        <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
-                            Generous whitespace, restrained typography, muted
-                            tones, and subtle gold accents create an experience
-                            that feels elegant without overwhelming the content.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- DESIGN PRINCIPLES --}}
-                <div class="mt-20 grid border-t border-charcoal/10 sm:grid-cols-3">
-
-                    {{-- ITEM --}}
-                    <div class="border-b border-charcoal/10 py-8 sm:border-b-0 sm:border-r sm:pr-10">
-
-                        <span class="text-[9px] tracking-[0.25em] text-muted">
-                            01
-                        </span>
-
-                        <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Clarity
-                        </h3>
-
-                        <p class="mt-3 text-sm leading-6 text-muted">
-                            Information remains easy to understand and navigate.
-                        </p>
-
-                    </div>
-
-
-                    {{-- ITEM --}}
-                    <div class="border-b border-charcoal/10 py-8 sm:border-b-0 sm:border-r sm:px-10">
-
-                        <span class="text-[9px] tracking-[0.25em] text-muted">
-                            02
-                        </span>
-
-                        <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Elegance
-                        </h3>
-
-                        <p class="mt-3 text-sm leading-6 text-muted">
-                            A restrained visual language creates a premium feel.
-                        </p>
-
-                    </div>
-
-
-                    {{-- ITEM --}}
-                    <div class="py-8 sm:pl-10">
-
-                        <span class="text-[9px] tracking-[0.25em] text-muted">
-                            03
-                        </span>
-
-                        <h3 class="mt-5 font-serif text-2xl text-charcoal">
-                            Discovery
-                        </h3>
-
-                        <p class="mt-3 text-sm leading-6 text-muted">
-                            Content encourages visitors to explore naturally.
+                            Summarized attendance recaps to support
+                            administrative reporting.
                         </p>
 
                     </div>
@@ -601,9 +524,9 @@
                     <div>
 
                         <p class="text-sm leading-7 text-muted sm:text-[15px]">
-                            Ralph de Vinca was built as a fullstack web application,
-                            combining a structured backend, relational database,
-                            dynamic content, and a responsive frontend interface.
+                            PKKMB INSTIKI 2026 was built as a fullstack web
+                            application, combining a structured backend,
+                            relational database, and role-based interfaces.
                         </p>
 
                     </div>
@@ -612,7 +535,7 @@
 
 
                 {{-- TECHNOLOGY GRID --}}
-                <div class="mt-16 grid border-t border-charcoal/10 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="mt-16 grid border-t border-charcoal/10 sm:grid-cols-2 lg:grid-cols-3">
 
                     {{-- BACKEND --}}
                     <div class="border-b border-charcoal/10 py-8 sm:pr-10 lg:border-b-0 lg:border-r">
@@ -626,8 +549,8 @@
                         </p>
 
                         <p class="mt-3 max-w-xs text-sm leading-6 text-muted">
-                            Routing, controllers, models, dynamic content,
-                            and application logic.
+                            Routing, controllers, models, role-based access,
+                            and attendance logic.
                         </p>
 
                     </div>
@@ -645,15 +568,15 @@
                         </p>
 
                         <p class="mt-3 max-w-xs text-sm leading-6 text-muted">
-                            Responsive layouts, reusable components,
-                            interactions, and visual system.
+                            Dashboard layouts, tables, and role-based
+                            interface views.
                         </p>
 
                     </div>
 
 
                     {{-- DATABASE --}}
-                    <div class="border-b border-charcoal/10 py-8 sm:pr-10 lg:border-b-0 lg:border-r lg:px-10">
+                    <div class="py-8 sm:pl-10 lg:pl-10">
 
                         <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
                             Database
@@ -664,27 +587,8 @@
                         </p>
 
                         <p class="mt-3 max-w-xs text-sm leading-6 text-muted">
-                            Structured perfume, note, category, and
-                            fragrance-related data.
-                        </p>
-
-                    </div>
-
-
-                    {{-- INTERACTION --}}
-                    <div class="py-8 sm:pl-10 lg:pl-10">
-
-                        <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                            Interaction
-                        </span>
-
-                        <p class="mt-4 font-serif text-2xl text-charcoal">
-                            JavaScript
-                        </p>
-
-                        <p class="mt-3 max-w-xs text-sm leading-6 text-muted">
-                            Interactive filtering, navigation behavior,
-                            and subtle interface interactions.
+                            Structured data for students, classes, sessions,
+                            and attendance records.
                         </p>
 
                     </div>
@@ -720,10 +624,6 @@
                         </span>
 
                         <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                            JavaScript
-                        </span>
-
-                        <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
                             MySQL
                         </span>
 
@@ -747,7 +647,7 @@
                 <div class="text-center">
 
                     <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
-                        Ralph de Vinca
+                        PKKMB INSTIKI 2026
                     </p>
 
                     <h2 class="mx-auto mt-5 max-w-3xl font-serif text-4xl leading-[1] tracking-[-0.02em] text-charcoal sm:text-5xl lg:text-6xl">
@@ -780,7 +680,7 @@
 
 
                         <a
-                            href="{{ route('work.bali-cebelok') }}"
+                            href="{{ route('work.ralph') }}"
                             class="group inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
                         >
 

@@ -7,9 +7,10 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
     libonig-dev \
+    libpq-dev \
     curl \
     && docker-php-ext-install \
-    pdo_mysql \
+    pdo_pgsql \
     mbstring \
     zip \
     && a2enmod rewrite \
@@ -54,6 +55,10 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' \
 RUN sed -i 's|<Directory /var/www/html>|<Directory /var/www/html/public>|g' \
     /etc/apache2/apache2.conf
 
+RUN chmod +x docker-entrypoint.sh
+
 EXPOSE 80
+
+ENTRYPOINT ["/var/www/html/docker-entrypoint.sh"]
 
 CMD ["apache2-foreground"]

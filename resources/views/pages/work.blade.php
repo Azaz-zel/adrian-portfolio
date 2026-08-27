@@ -463,7 +463,7 @@
                                     <div class="aspect-[16/9]">
 
                                         <img
-                                            src="{{ asset('images/projects/pkkmb.jpg') }}"
+                                            src="{{ asset('images/projects/absensi-mahasiswa.png') }}"
                                             alt="PKKMB INSTIKI 2026 Attendance System"
                                             class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                                         >
@@ -503,49 +503,119 @@
                                                 A centralized attendance platform designed to manage student attendance, classes, sessions, and administrative access during PKKMB.
                                             </p>
 
+                                            <a
+                                                href="{{ route('work.pkkmb') }}"
+                                                class="group/link mt-8 inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[9px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
+                                            >
+
+                                                <span>
+                                                    View Project
+                                                </span>
+
+                                                <span class="text-base transition-transform duration-300 group-hover/link:translate-x-1">
+                                                    →
+                                                </span>
+
+                                            </a>
+
                                         </div>
 
                                     </div>
 
 
-                                    {{-- CURRENT TECH --}}
+                                    {{-- PROJECT DETAILS --}}
                                     <div class="mt-10 border-t border-charcoal/10 pt-8">
 
-                                        <p class="text-[9px] uppercase tracking-[0.3em] text-gold">
-                                            Current Stack
-                                        </p>
+                                        <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
 
-                                        <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-4">
+                                            {{-- WHAT I BUILT --}}
+                                            <div>
 
-                                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                                                Laravel
-                                            </span>
+                                                <p class="text-[9px] uppercase tracking-[0.3em] text-gold">
+                                                    What I Built
+                                                </p>
 
-                                            <span class="h-px w-6 bg-charcoal/20"></span>
+                                                <div class="mt-5 space-y-4">
 
-                                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                                                MySQL
-                                            </span>
+                                                    <div class="flex items-start gap-4">
+                                                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold"></span>
 
-                                            <span class="h-px w-6 bg-charcoal/20"></span>
+                                                        <span class="text-sm leading-6 text-muted">
+                                                            Centralized student attendance recording
+                                                        </span>
+                                                    </div>
 
-                                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                                                Blade
-                                            </span>
+                                                    <div class="flex items-start gap-4">
+                                                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold"></span>
 
-                                            <span class="h-px w-6 bg-charcoal/20"></span>
+                                                        <span class="text-sm leading-6 text-muted">
+                                                            Admin and PJ (person-in-charge) dashboards
+                                                        </span>
+                                                    </div>
 
-                                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
-                                                Tailwind CSS
-                                            </span>
+                                                    <div class="flex items-start gap-4">
+                                                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold"></span>
+
+                                                        <span class="text-sm leading-6 text-muted">
+                                                            Class, session, and role management
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="flex items-start gap-4">
+                                                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold"></span>
+
+                                                        <span class="text-sm leading-6 text-muted">
+                                                            Attendance recap and reporting
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            {{-- TECH STACK --}}
+                                            <div>
+
+                                                <p class="text-[9px] uppercase tracking-[0.3em] text-gold">
+                                                    Tech Stack
+                                                </p>
+
+                                                <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-4">
+
+                                                    <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                                        Laravel
+                                                    </span>
+
+                                                    <span class="h-px w-6 bg-charcoal/20"></span>
+
+                                                    <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                                        PHP
+                                                    </span>
+
+                                                    <span class="h-px w-6 bg-charcoal/20"></span>
+
+                                                    <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                                        MySQL
+                                                    </span>
+
+                                                    <span class="h-px w-6 bg-charcoal/20"></span>
+
+                                                    <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                                        Blade
+                                                    </span>
+
+                                                    <span class="h-px w-6 bg-charcoal/20"></span>
+
+                                                    <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                                        Tailwind CSS
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
 
                                         </div>
-
-                                        <p class="mt-5 max-w-xl text-[11px] leading-6 text-muted">
-                                            Project currently in development. Backend architecture,
-                                            attendance flow, roles, and administrative features will be
-                                            documented once the system is completed.
-                                        </p>
 
                                     </div>
 
@@ -621,4 +691,3 @@
     <x-footer />
 
 @endsection
-```

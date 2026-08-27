@@ -630,7 +630,7 @@
                         <div class="mt-10">
 
                             <a
-                                href="mailto:mangadrian2@email.com"
+                                href="mailto:mangadrian2@gmail.com"
                                 class="group inline-flex items-center gap-5 border-b border-charcoal pb-3 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
                             >
 
@@ -660,10 +660,10 @@
                             </p>
 
                             <a
-                                href="mailto:mangadrian2@email.com"
+                                href="mailto:mangadrian2@gmail.com"
                                 class="mt-3 block text-sm text-charcoal transition-colors duration-300 hover:text-gold"
                             >
-                                mangadrian2@email.com
+                                mangadrian2@gmail.com
                             </a>
 
                         </div>
