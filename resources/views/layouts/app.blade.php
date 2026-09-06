@@ -39,6 +39,11 @@
     <meta name="twitter:description" content="{{ $description ?? 'Portfolio of Adrian (Clive Christian), a full-stack developer based in Bali, Indonesia.' }}">
     <meta name="twitter:image" content="{{ asset($ogImage ?? 'images/profile.jpeg') }}">
 
+    {{-- Preloads and @font-face rules for the bundled Instrument Sans and
+         Cormorant Garamond. Without this the fonts are built but never
+         served, and every heading falls back to Georgia. --}}
+    {{ Vite::fonts() }}
+
     @vite([
         'resources/css/app.css',
         'resources/js/app.js'
