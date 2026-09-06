@@ -47,6 +47,40 @@ Route::view('/contact', 'pages.contact', [
     'ogImage' => 'images/profile.jpeg',
 ])->name('contact');
 
+Route::get('/robots.txt', function () {
+    $body = implode("\n", [
+        'User-agent: *',
+        'Disallow: /login',
+        'Disallow: /inbox',
+        '',
+        'Sitemap: '.route('sitemap'),
+        '',
+    ]);
+
+    return response($body)->header('Content-Type', 'text/plain');
+})->name('robots');
+
+Route::get('/sitemap.xml', function () {
+    $pages = [
+        ['home', '1.0'],
+        ['work', '0.9'],
+        ['work.ralph', '0.8'],
+        ['work.bali-cebelok', '0.8'],
+        ['work.pkkmb', '0.8'],
+        ['about', '0.7'],
+        ['contact', '0.7'],
+    ];
+
+    $urls = collect($pages)->map(fn ($p) => [
+        'loc' => route($p[0]),
+        'priority' => $p[1],
+    ]);
+
+    return response()
+        ->view('sitemap', ['urls' => $urls])
+        ->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
