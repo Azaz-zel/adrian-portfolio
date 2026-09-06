@@ -122,9 +122,10 @@
                         <div class="mt-8 max-w-2xl">
 
                             <p class="text-sm leading-8 text-muted sm:text-[15px]">
-                                Ralph de Vinca Perfumary was designed as an
-                                informational and educational platform centered
-                                around the world of fragrance.
+                                Ralph de Vinca Perfumary is my own brand, and this
+                                platform was designed as its informational and
+                                educational home, centered around the world of
+                                fragrance.
                             </p>
 
                             <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
@@ -172,13 +173,14 @@
 
 
                         {{-- Role --}}
-                        <div class="flex items-center justify-between border-b border-charcoal/10 py-5">
+                        <div class="flex items-center justify-between gap-6 border-b border-charcoal/10 py-5">
 
                             <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
                                 Role
                             </span>
 
-                            <span class="text-sm text-charcoal">
+                            <span class="text-right text-sm leading-6 text-charcoal">
+                                Founder<br>
                                 Design & Development
                             </span>
 

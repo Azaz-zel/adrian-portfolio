@@ -57,7 +57,7 @@ Route::get('/login', [AuthController::class, 'create'])
     ->name('login');
 
 Route::post('/login', [AuthController::class, 'store'])
-    ->middleware('guest')
+    ->middleware(['guest', 'throttle:5,1'])
     ->name('login.store');
 
 Route::post('/logout', [AuthController::class, 'destroy'])

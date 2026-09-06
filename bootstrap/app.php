@@ -12,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Hosting platforms terminate TLS at their own proxy and forward the
+        // request over plain HTTP. Without this, Laravel builds every asset(),
+        // canonical and og:url as http:// on an https:// site — browsers then
+        // block the stylesheet and JS as mixed content and the page renders bare.
+        $middleware->trustProxies(at: '*');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

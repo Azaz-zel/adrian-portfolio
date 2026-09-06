@@ -25,17 +25,23 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
 
 COPY composer.json composer.lock ./
 
+# --no-scripts / --no-autoloader: the artisan file is not in the image yet, so
+# Laravel's post-autoload-dump hook cannot run. Autoloading is generated after
+# the full source is copied in.
 RUN composer install \
     --no-dev \
     --no-interaction \
     --prefer-dist \
-    --optimize-autoloader
+    --no-scripts \
+    --no-autoloader
 
 COPY package.json package-lock.json ./
 
 RUN npm ci
 
 COPY . .
+
+RUN composer dump-autoload --no-dev --optimize
 
 RUN npm run build
 

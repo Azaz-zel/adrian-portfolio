@@ -47,10 +47,10 @@
 
                             <p class="text-sm leading-7 text-muted sm:text-[15px]">
 
-                                I'm Adrian, a web developer and digital creator
-                                focused on building thoughtful, functional, and
-                                visually refined digital experiences from
-                                responsive websites to full-stack web applications.
+                                I'm Adrian, founder of Ralph de Vinca Group and a
+                                full-stack developer focused on building thoughtful,
+                                functional, and visually refined digital experiences
+                                from responsive websites to full-stack web applications.
 
                             </p>
 
@@ -118,6 +118,14 @@
                                 applications.
                             </p>
 
+                            <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
+                                Alongside client work, I founded
+                                <span class="text-charcoal">Ralph de Vinca Group</span>,
+                                which now runs two arms: Perfumery, a fragrance brand
+                                and its digital platform, and Technology, where I build
+                                software for real operational needs.
+                            </p>
+
                         </div>
 
                     </div>
@@ -154,15 +162,29 @@
                         </div>
 
 
+                        {{-- Company --}}
+                        <div class="flex items-center justify-between gap-6 border-b border-charcoal/10 py-5">
+
+                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                Company
+                            </span>
+
+                            <span class="text-right text-sm text-charcoal">
+                                Ralph de Vinca Group
+                            </span>
+
+                        </div>
+
+
                         {{-- Role --}}
-                        <div class="flex items-center justify-between border-b border-charcoal/10 py-5">
+                        <div class="flex items-center justify-between gap-6 border-b border-charcoal/10 py-5">
 
                             <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
                                 Role
                             </span>
 
-                            <span class="text-sm text-charcoal">
-                                Web Developer
+                            <span class="text-right text-sm text-charcoal">
+                                Founder & Developer
                             </span>
 
                         </div>

@@ -126,7 +126,7 @@
                             <p class="text-sm leading-8 text-muted sm:text-[15px]">
                                 PKKMB INSTIKI 2026 required a reliable way to
                                 track attendance across many classes, sessions,
-                                and hundreds of students throughout the event.
+                                and over 1,100 students throughout the event.
                             </p>
 
                             <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
@@ -134,6 +134,12 @@
                                 session PJs (persons in charge) a clear, centralized
                                 view of attendance in real time, replacing manual
                                 and paper-based recording.
+                            </p>
+
+                            <p class="mt-6 text-sm leading-8 text-muted sm:text-[15px]">
+                                It was delivered under
+                                <span class="text-charcoal">Ralph de Vinca Technology</span>,
+                                the software arm of the group I founded.
                             </p>
 
                         </div>
@@ -172,14 +178,29 @@
                         </div>
 
 
+                        {{-- Built By --}}
+                        <div class="flex items-center justify-between gap-6 border-b border-charcoal/10 py-5">
+
+                            <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
+                                Built By
+                            </span>
+
+                            <span class="text-right text-sm text-charcoal">
+                                Ralph de Vinca Technology
+                            </span>
+
+                        </div>
+
+
                         {{-- Role --}}
-                        <div class="flex items-center justify-between border-b border-charcoal/10 py-5">
+                        <div class="flex items-center justify-between gap-6 border-b border-charcoal/10 py-5">
 
                             <span class="text-[9px] uppercase tracking-[0.25em] text-muted">
                                 Role
                             </span>
 
-                            <span class="text-sm text-charcoal">
+                            <span class="text-right text-sm leading-6 text-charcoal">
+                                Founder<br>
                                 Design & Development
                             </span>
 
@@ -264,8 +285,8 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/dashboard-admin.png') }}"
-                            alt="PKKMB Admin Dashboard"
+                            src="{{ asset('images/projects/dashboard-absen.png') }}"
+                            alt="PKKMB Admin Dashboard showing live attendance statistics"
                             class="block h-auto w-full"
                         >
 
@@ -279,9 +300,9 @@
                         </h3>
 
                         <p class="text-sm leading-7 text-muted">
-                            Gives administrators full visibility over classes,
-                            sessions, students, and account roles across the
-                            entire event.
+                            Live visibility over the entire event: attendance
+                            recorded across every class and session, plus point
+                            and sanction tracking, all updating as the day runs.
                         </p>
 
                     </div>
