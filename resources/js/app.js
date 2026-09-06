@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    button.addEventListener('click', () => {
+    const links = menu.querySelectorAll('a');
 
-        const isOpen = menu.classList.toggle('is-open');
+    const setState = (isOpen) => {
+
+        menu.classList.toggle('is-open', isOpen);
 
         button.classList.toggle('is-open', isOpen);
 
@@ -18,36 +20,53 @@ document.addEventListener('DOMContentLoaded', () => {
             isOpen ? 'true' : 'false'
         );
 
+        button.setAttribute(
+            'aria-label',
+            isOpen ? 'Close navigation' : 'Open navigation'
+        );
+
         document.body.classList.toggle(
             'overflow-hidden',
             isOpen
         );
 
+        // Keep the closed menu out of the tab order entirely, otherwise
+        // keyboard users tab into links they cannot see.
+        menu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+        links.forEach(link => {
+            link.tabIndex = isOpen ? 0 : -1;
+        });
+    };
+
+    setState(false);
+
+    button.addEventListener('click', () => {
+
+        const isOpen = !menu.classList.contains('is-open');
+
+        setState(isOpen);
+
+        if (isOpen && links.length) {
+            links[0].focus();
+        }
     });
 
-
-    // Tutup menu setelah memilih halaman
-    const links = menu.querySelectorAll('a');
-
+    // Close the menu after choosing a page.
     links.forEach(link => {
+        link.addEventListener('click', () => setState(false));
+    });
 
-        link.addEventListener('click', () => {
+    document.addEventListener('keydown', (event) => {
 
-            menu.classList.remove('is-open');
+        if (event.key !== 'Escape' || !menu.classList.contains('is-open')) {
+            return;
+        }
 
-            button.classList.remove('is-open');
+        setState(false);
 
-            button.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-
-            document.body.classList.remove(
-                'overflow-hidden'
-            );
-
-        });
-
+        // Return focus to the control that opened the menu.
+        button.focus();
     });
 
 });

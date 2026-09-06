@@ -4,7 +4,7 @@
 
     <x-navbar />
 
-    <main>
+    <main id="main-content">
 
         {{-- =========================================================
             HERO
@@ -769,7 +769,14 @@
             }
 
 
-            // Preload semua gambar supaya tidak ada gambar kosong
+            // Respect a visitor who has asked their system for less motion:
+            // leave the first slide showing and never auto-advance.
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+
+            // Preload every image so no slide flashes in empty.
             slides.forEach(function (slide) {
 
                 const preload = new Image();

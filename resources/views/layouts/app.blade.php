@@ -53,6 +53,11 @@
 
 <body class="bg-cream text-charcoal antialiased">
 
+    <a href="#main-content" class="skip-link">
+        Skip to content
+    </a>
+
+
     @yield('content')
 
 </body>

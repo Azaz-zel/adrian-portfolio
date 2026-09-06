@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <main class="min-h-screen bg-cream px-6 py-16 sm:px-8 lg:px-12">
+    <main id="main-content" class="min-h-screen bg-cream px-6 py-16 sm:px-8 lg:px-12">
 
         <div class="mx-auto w-full max-w-5xl">
 

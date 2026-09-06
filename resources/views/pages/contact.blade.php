@@ -4,7 +4,7 @@
 
     <x-navbar />
 
-    <main>
+    <main id="main-content">
 
         {{-- =========================================================
             HERO
@@ -149,13 +149,15 @@
                                         id="name"
                                         value="{{ old('name') }}"
                                         required
+                                        autocomplete="name"
+                                        @error('name') aria-invalid="true" aria-describedby="name-error" @enderror
                                         class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
                                         placeholder="Your name"
                                     >
 
                                     @error('name')
 
-                                        <p class="mt-2 text-[11px] text-red-600">
+                                        <p id="name-error" class="mt-2 text-[11px] text-red-700">
                                             {{ $message }}
                                         </p>
 
@@ -180,13 +182,15 @@
                                         id="email"
                                         value="{{ old('email') }}"
                                         required
+                                        autocomplete="email"
+                                        @error('email') aria-invalid="true" aria-describedby="email-error" @enderror
                                         class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
                                         placeholder="you@email.com"
                                     >
 
                                     @error('email')
 
-                                        <p class="mt-2 text-[11px] text-red-600">
+                                        <p id="email-error" class="mt-2 text-[11px] text-red-700">
                                             {{ $message }}
                                         </p>
 
@@ -212,13 +216,14 @@
                                     id="message"
                                     rows="5"
                                     required
+                                    @error('message') aria-invalid="true" aria-describedby="message-error" @enderror
                                     class="mt-3 w-full border-b border-charcoal/20 bg-transparent pb-3 text-sm text-charcoal placeholder:text-muted/60 focus:border-gold focus:outline-none"
                                     placeholder="Tell me about your project..."
                                 >{{ old('message') }}</textarea>
 
                                 @error('message')
 
-                                    <p class="mt-2 text-[11px] text-red-600">
+                                    <p id="message-error" class="mt-2 text-[11px] text-red-700">
                                         {{ $message }}
                                     </p>
 

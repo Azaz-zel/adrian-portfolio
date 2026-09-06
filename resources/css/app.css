@@ -49,6 +49,53 @@ img {
 
 
 /* =========================================================
+   KEYBOARD FOCUS
+
+   Form fields use focus:outline-none for a clean look, which would
+   otherwise leave keyboard users with no visible position at all.
+   :focus-visible only shows for keyboard navigation, never on click.
+========================================================= */
+
+:focus-visible {
+    outline: 2px solid #B08D57;
+    outline-offset: 3px;
+    border-radius: 1px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   SKIP LINK
+========================================================= */
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 200;
+
+    padding: 0.75rem 1.25rem;
+
+    background: #1C1A17;
+    color: #F5F1E8;
+
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+
+    transition: top 200ms ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+
+/* =========================================================
    REDUCE MOTION
 ========================================================= */
 
