@@ -86,9 +86,13 @@
                 <div class="overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
 
                     <img
-                        src="{{ asset('images/projects/absensi-mahasiswa.png') }}"
+                        src="{{ asset('images/projects/absensi-mahasiswa.webp') }}"
                         alt="PKKMB INSTIKI 2026 Student Attendance"
                         class="block h-auto w-full"
+                        width="1919"
+                        height="959"
+                        decoding="async"
+                        fetchpriority="high"
                     >
 
                 </div>
@@ -172,7 +176,7 @@
                             </span>
 
                             <span class="text-sm text-charcoal">
-                                Fullstack Web Application
+                                Full-Stack Web Application
                             </span>
 
                         </div>
@@ -285,9 +289,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/dashboard-absen.png') }}"
+                            src="{{ asset('images/projects/dashboard-absen.webp') }}"
                             alt="PKKMB Admin Dashboard showing live attendance statistics"
                             class="block h-auto w-full"
+                            width="1919"
+                            height="961"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>
@@ -319,9 +327,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/dashboard-pj.png') }}"
+                            src="{{ asset('images/projects/dashboard-pj.webp') }}"
                             alt="PKKMB PJ Dashboard"
                             class="block h-auto w-full"
+                            width="1919"
+                            height="956"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>
@@ -353,9 +365,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/rekap-kehadiran.png') }}"
+                            src="{{ asset('images/projects/rekap-kehadiran.webp') }}"
                             alt="PKKMB Attendance Recap"
                             class="block h-auto w-full"
+                            width="1919"
+                            height="957"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>

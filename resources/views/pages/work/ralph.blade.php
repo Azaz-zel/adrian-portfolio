@@ -51,7 +51,7 @@
                         </h1>
 
                         <p class="mt-5 text-[15px] uppercase tracking-[0.3em] text-muted">
-                            Perfumary
+                            Perfumery
                         </p>
 
                     </div>
@@ -84,9 +84,13 @@
                 <div class="overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
 
                     <img
-                        src="{{ asset('images/projects/ralph-home.jpg') }}"
+                        src="{{ asset('images/projects/ralph-home.webp') }}"
                         alt="Ralph de Vinca Homepage"
                         class="block h-auto w-full"
+                        width="1918"
+                        height="924"
+                        decoding="async"
+                        fetchpriority="high"
                     >
 
                 </div>
@@ -122,7 +126,7 @@
                         <div class="mt-8 max-w-2xl">
 
                             <p class="text-sm leading-8 text-muted sm:text-[15px]">
-                                Ralph de Vinca Perfumary is my own brand, and this
+                                Ralph de Vinca Perfumery is my own brand, and this
                                 platform was designed as its informational and
                                 educational home, centered around the world of
                                 fragrance.
@@ -166,7 +170,7 @@
                             </span>
 
                             <span class="text-sm text-charcoal">
-                                Fullstack Web Application
+                                Full-Stack Web Application
                             </span>
 
                         </div>
@@ -266,9 +270,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/ralph-explore.png') }}"
+                            src="{{ asset('images/projects/ralph-explore.webp') }}"
                             alt="Ralph de Vinca Fragrance Academy"
                             class="block h-auto w-full"
+                            width="1919"
+                            height="928"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>
@@ -301,9 +309,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/ralph-detail.png') }}"
-                            alt="About Ralph de Vinca Perfumary"
+                            src="{{ asset('images/projects/ralph-detail.webp') }}"
+                            alt="About Ralph de Vinca Perfumery"
                             class="block h-auto w-full"
+                            width="1919"
+                            height="929"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>

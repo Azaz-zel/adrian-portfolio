@@ -87,9 +87,13 @@
                                     <div class="aspect-[16/9]">
 
                                         <img
-                                            src="{{ asset('images/projects/ralph-home.jpg') }}"
-                                            alt="Ralph de Vinca Perfumary"
+                                            src="{{ asset('images/projects/ralph-home.webp') }}"
+                                            alt="Ralph de Vinca Perfumery"
                                             class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                                            width="1918"
+                                            height="924"
+                                            decoding="async"
+                                            fetchpriority="high"
                                         >
 
                                     </div>
@@ -114,7 +118,7 @@
                                             </h2>
 
                                             <p class="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted">
-                                                Perfumary
+                                                Perfumery
                                             </p>
 
                                         </div>
@@ -284,9 +288,13 @@
                                     <div class="aspect-[16/9]">
 
                                         <img
-                                            src="{{ asset('images/projects/balicebelok.jpg') }}"
+                                            src="{{ asset('images/projects/balicebelok.webp') }}"
                                             alt="Bali Cebelok Gesiuh"
                                             class="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                                            width="1919"
+                                            height="930"
+                                            loading="lazy"
+                                            decoding="async"
                                         >
 
                                     </div>
@@ -463,9 +471,13 @@
                                     <div class="aspect-[16/9]">
 
                                         <img
-                                            src="{{ asset('images/projects/absensi-mahasiswa.png') }}"
+                                            src="{{ asset('images/projects/absensi-mahasiswa.webp') }}"
                                             alt="PKKMB INSTIKI 2026 Attendance System"
                                             class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                                            width="1919"
+                                            height="959"
+                                            loading="lazy"
+                                            decoding="async"
                                         >
 
                                     </div>

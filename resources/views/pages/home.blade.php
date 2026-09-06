@@ -73,6 +73,10 @@
                                 src="{{ asset('images/profile.jpeg') }}"
                                 alt="Adrian — Full-Stack Developer"
                                 class="h-full w-full object-cover object-center grayscale-[15%]"
+                                width="854"
+                                height="1280"
+                                decoding="async"
+                                fetchpriority="high"
                             >
 
                         </div>
@@ -178,30 +182,46 @@
 
                             {{-- IMAGE 01 --}}
                             <img
-                                src="{{ asset('images/projects/ralph-home.jpg') }}"
+                                src="{{ asset('images/projects/ralph-home.webp') }}"
                                 alt="Ralph de Vinca Homepage"
                                 class="project-slide absolute inset-0 z-10 block h-full w-full object-cover opacity-100 will-change-[opacity,transform]"
+                                width="1918"
+                                height="924"
+                                loading="lazy"
+                                decoding="async"
                             >
 
                             {{-- IMAGE 02 --}}
                             <img
-                                src="{{ asset('images/projects/ralph-explore.png') }}"
+                                src="{{ asset('images/projects/ralph-explore.webp') }}"
                                 alt="Ralph de Vinca Explore Page"
                                 class="project-slide absolute inset-0 z-20 block h-full w-full object-cover opacity-0 will-change-[opacity,transform]"
+                                width="1919"
+                                height="928"
+                                loading="lazy"
+                                decoding="async"
                             >
 
                             {{-- IMAGE 03 --}}
                             <img
-                                src="{{ asset('images/projects/ralph-detail.png') }}"
+                                src="{{ asset('images/projects/ralph-detail.webp') }}"
                                 alt="Ralph de Vinca Perfume Detail"
                                 class="project-slide absolute inset-0 z-20 block h-full w-full object-cover opacity-0 will-change-[opacity,transform]"
+                                width="1919"
+                                height="929"
+                                loading="lazy"
+                                decoding="async"
                             >
 
                             {{-- HEIGHT HOLDER --}}
                             <img
-                                src="{{ asset('images/projects/ralph-home.jpg') }}"
+                                src="{{ asset('images/projects/ralph-home.webp') }}"
                                 alt=""
                                 class="block h-auto w-full opacity-0"
+                                width="1918"
+                                height="924"
+                                loading="lazy"
+                                decoding="async"
                             >
 
                         </div>
@@ -237,7 +257,7 @@
                                 </h3>
 
                                 <p class="mt-2 text-[10px] uppercase tracking-[0.25em] text-muted">
-                                    Perfumary
+                                    Perfumery
                                 </p>
 
                             </div>
@@ -516,6 +536,10 @@
                                     src="{{ asset('images/me.jpeg') }}"
                                     alt="Adrian — Web Developer & Digital Creator"
                                     class="h-full w-full object-cover object-center grayscale-[10%]"
+                                    width="960"
+                                    height="1280"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
 
                             </div>

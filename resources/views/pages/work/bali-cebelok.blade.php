@@ -88,9 +88,13 @@
                 <div class="overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
 
                     <img
-                        src="{{ asset('images/projects/balicebelok.jpg') }}"
+                        src="{{ asset('images/projects/balicebelok.webp') }}"
                         alt="Bali Cebelok Gesiuh"
                         class="block h-auto w-full"
+                        width="1919"
+                        height="930"
+                        decoding="async"
+                        fetchpriority="high"
                     >
 
                 </div>
@@ -274,9 +278,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/cebelok-story.png') }}"
+                            src="{{ asset('images/projects/cebelok-story.webp') }}"
                             alt="Bali Cebelok Gesiuh Story"
                             class="block h-auto w-full"
+                            width="1918"
+                            height="957"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>
@@ -362,9 +370,13 @@
                     <div class="overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                         <img
-                            src="{{ asset('images/projects/cebelok-experience.png') }}"
+                            src="{{ asset('images/projects/cebelok-experience.webp') }}"
                             alt="Bali Cebelok Gesiuh Experience"
                             class="block h-auto w-full"
+                            width="1917"
+                            height="956"
+                            loading="lazy"
+                            decoding="async"
                         >
 
                     </div>

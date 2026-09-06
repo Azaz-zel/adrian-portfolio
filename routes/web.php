@@ -14,25 +14,25 @@ Route::view('/', 'pages.home', [
 Route::view('/work', 'pages.work', [
     'title' => 'Selected Work — Clive Christian',
     'description' => 'A selection of web applications and digital projects built across frontend, backend, database, and user experience.',
-    'ogImage' => 'images/projects/ralph-home.jpg',
+    'ogImage' => 'images/projects/ralph-home.webp',
 ])->name('work');
 
 Route::view('/work/ralph-de-vinca', 'pages.work.ralph', [
-    'title' => 'Ralph de Vinca — Perfumary | Clive Christian',
+    'title' => 'Ralph de Vinca — Perfumery | Clive Christian',
     'description' => 'A fragrance platform combining structured content, database-driven perfume information, and a refined responsive interface.',
-    'ogImage' => 'images/projects/ralph-home.jpg',
+    'ogImage' => 'images/projects/ralph-home.webp',
 ])->name('work.ralph');
 
 Route::view('/work/bali-cebelok-gesiuh', 'pages.work.bali-cebelok', [
     'title' => 'Bali Cebelok Gesiuh — Traditional Coconut Oil Experience | Clive Christian',
     'description' => "A digital experience introducing visitors to Bali's traditional coconut oil making process and guiding them toward the booking experience.",
-    'ogImage' => 'images/projects/balicebelok.jpg',
+    'ogImage' => 'images/projects/balicebelok.webp',
 ])->name('work.bali-cebelok');
 
 Route::view('/work/pkkmb-instiki', 'pages.work.pkkmb', [
     'title' => 'PKKMB INSTIKI 2026 — Student Attendance System | Clive Christian',
     'description' => 'A centralized attendance platform designed to manage student attendance, classes, sessions, and administrative access during PKKMB.',
-    'ogImage' => 'images/projects/absensi-mahasiswa.png',
+    'ogImage' => 'images/projects/absensi-mahasiswa.webp',
 ])->name('work.pkkmb');
 
 Route::view('/about', 'pages.about', [
