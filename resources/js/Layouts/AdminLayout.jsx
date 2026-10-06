@@ -1,6 +1,22 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
+// Back and Forward make Inertia rebuild a page from browser history without asking
+// the server, so an admin page could show, and then re-save, data that has changed
+// since. Refetch admin pages instead, as a fresh mount so forms start from the server.
+const isAdminPage = () => /^\/(admin|inbox)(\/|$)/.test(window.location.pathname);
+const refetch = () => router.visit(window.location.href, { replace: true, preserveScroll: true, preserveState: false });
+
+if (typeof window !== 'undefined') {
+    let fromHistory = false;
+    window.addEventListener('popstate', () => (fromHistory = true));
+    window.addEventListener('pageshow', (e) => e.persisted && isAdminPage() && refetch());
+    router.on('navigate', () => {
+        if (fromHistory && isAdminPage()) refetch();
+        fromHistory = false;
+    });
+}
+
 export function ConfirmButton({ children, confirmLabel, onConfirm, className = '' }) {
     const [asking, setAsking] = useState(false);
 

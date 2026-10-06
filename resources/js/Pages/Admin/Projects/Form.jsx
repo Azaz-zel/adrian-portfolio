@@ -174,10 +174,16 @@ export default function ProjectForm({ project, layers, nextPosition }) {
     });
     const [preview, setPreview] = useState(project?.cover ?? null);
 
+    // Send the featured flag only when it was flipped in this form (see ProjectRequest).
+    const payload = (d) => {
+        const { is_featured, ...rest } = d;
+        return is_featured === (project?.is_featured ?? false) ? rest : d;
+    };
+
     const submit = (e) => {
         e.preventDefault();
+        form.transform(editing ? (d) => ({ ...payload(d), _method: 'put' }) : payload);
         if (editing) {
-            form.transform((d) => ({ ...d, _method: 'put' }));
             form.post(`/admin/projects/${project.slug}`, { forceFormData: true, preserveScroll: true, onSuccess: () => form.setData('cover', null), onError: focusFirstError });
         } else {
             form.post('/admin/projects', { forceFormData: true, onError: focusFirstError });

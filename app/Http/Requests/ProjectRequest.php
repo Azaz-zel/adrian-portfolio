@@ -19,8 +19,14 @@ class ProjectRequest extends FormRequest
         $this->merge([
             'slug' => Str::slug($this->input('slug') ?: $this->input('title')),
             'is_published' => $this->boolean('is_published'),
-            'is_featured' => $this->boolean('is_featured'),
         ]);
+
+        // Only one project is featured, so the flag belongs to the whole site, not to one
+        // form. The editor sends it only when the owner flips it; a save that leaves it
+        // out must not undo a change made to another project since this form loaded.
+        if ($this->has('is_featured')) {
+            $this->merge(['is_featured' => $this->boolean('is_featured')]);
+        }
     }
 
     /**
@@ -43,7 +49,7 @@ class ProjectRequest extends FormRequest
             'foundation' => ['nullable', 'string', 'max:2000'],
             'cover' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'is_published' => ['boolean'],
-            'is_featured' => ['boolean'],
+            'is_featured' => ['sometimes', 'boolean'],
             'position' => ['required', 'integer', 'min:0', 'max:9999'],
         ];
     }

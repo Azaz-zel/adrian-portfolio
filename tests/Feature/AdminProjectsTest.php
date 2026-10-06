@@ -62,6 +62,20 @@ class AdminProjectsTest extends TestCase
         $this->assertSame(['warung-booking'], Project::where('is_featured', true)->pluck('slug')->all());
     }
 
+    public function test_saving_another_project_does_not_undo_the_featured_choice(): void
+    {
+        $ralph = Project::where('slug', 'ralph-de-vinca')->firstOrFail();
+        $bali = Project::where('slug', 'bali-cebelok-gesiuh')->firstOrFail();
+        $fields = fn (Project $p) => $p->only(['title', 'slug', 'category', 'year', 'summary', 'position']) + ['is_published' => '1'];
+
+        $this->admin()->put('/admin/projects/bali-cebelok-gesiuh', $fields($bali) + ['is_featured' => '1'])->assertRedirect();
+        // Ralph's form was opened before the change; it saves without the featured flag.
+        $this->put('/admin/projects/ralph-de-vinca', ['summary' => 'Edited.'] + $fields($ralph))->assertRedirect();
+
+        $this->assertSame(['bali-cebelok-gesiuh'], Project::where('is_featured', true)->pluck('slug')->all());
+        $this->assertSame('Edited.', $ralph->fresh()->summary);
+    }
+
     public function test_slug_must_be_unique_and_title_is_required(): void
     {
         $this->admin()
