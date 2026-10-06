@@ -15,9 +15,9 @@ class ContactController extends Controller
     {
         $validated = $request->validated();
 
-        $redirect = redirect(route('contact').'#send-message');
+        $redirect = redirect()->route('contact');
 
-        $status = "Thanks — your message has been sent. I'll get back to you soon.";
+        $status = "Thanks, your message has been sent. I'll get back to you soon.";
 
         // Honeypot: bots fill this hidden field, real visitors never see it.
         // Pretend success without saving or sending so bots get no useful feedback.
@@ -31,6 +31,9 @@ class ContactController extends Controller
             'message' => $validated['message'],
         ]);
 
+        // ponytail: sent during the request, not queued. The container runs no queue
+        // worker, and a queued mail without a worker is never sent. Queue it once a
+        // worker runs next to Apache.
         try {
             Mail::to(config('mail.contact_recipient'))->send(new ContactMessage(
                 name: $submission->name,

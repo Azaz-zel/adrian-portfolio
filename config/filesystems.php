@@ -15,6 +15,10 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
 
+    // Where admin-uploaded project images go. Use an S3-compatible disk in production
+    // if the host wipes local storage on redeploy.
+    'media' => env('MEDIA_DISK', 'public'),
+
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks

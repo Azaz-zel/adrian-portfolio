@@ -1,57 +1,26 @@
 <?php
 
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\InboxController;
+use App\Http\Controllers\PageController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'pages.home', [
-    'title' => 'Clive Christian — Full-Stack Developer Portfolio',
-    'description' => 'I build full-stack web applications that combine reliable backend systems, thoughtful interfaces, and practical functionality. Based in Bali, Indonesia.',
-    'ogImage' => 'images/profile.jpeg',
-])->name('home');
-
-Route::view('/work', 'pages.work', [
-    'title' => 'Selected Work — Clive Christian',
-    'description' => 'A selection of web applications and digital projects built across frontend, backend, database, and user experience.',
-    'ogImage' => 'images/projects/ralph-home.webp',
-])->name('work');
-
-Route::view('/work/ralph-de-vinca', 'pages.work.ralph', [
-    'title' => 'Ralph de Vinca — Perfumery | Clive Christian',
-    'description' => 'A fragrance platform combining structured content, database-driven perfume information, and a refined responsive interface.',
-    'ogImage' => 'images/projects/ralph-home.webp',
-])->name('work.ralph');
-
-Route::view('/work/bali-cebelok-gesiuh', 'pages.work.bali-cebelok', [
-    'title' => 'Bali Cebelok Gesiuh — Traditional Coconut Oil Experience | Clive Christian',
-    'description' => "A digital experience introducing visitors to Bali's traditional coconut oil making process and guiding them toward the booking experience.",
-    'ogImage' => 'images/projects/balicebelok.webp',
-])->name('work.bali-cebelok');
-
-Route::view('/work/pkkmb-instiki', 'pages.work.pkkmb', [
-    'title' => 'PKKMB INSTIKI 2026 — Student Attendance System | Clive Christian',
-    'description' => 'A centralized attendance platform designed to manage student attendance, classes, sessions, and administrative access during PKKMB.',
-    'ogImage' => 'images/projects/absensi-mahasiswa.webp',
-])->name('work.pkkmb');
-
-Route::view('/about', 'pages.about', [
-    'title' => 'About — Clive Christian',
-    'description' => "I'm Adrian, a web developer and digital creator focused on building thoughtful, functional, and visually refined digital experiences.",
-    'ogImage' => 'images/me.jpeg',
-])->name('about');
-
-Route::view('/contact', 'pages.contact', [
-    'title' => 'Contact — Clive Christian',
-    'description' => "I'm open to web development projects, digital experiences, and creative collaborations. Let's talk.",
-    'ogImage' => 'images/profile.jpeg',
-])->name('contact');
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/work', [PageController::class, 'work'])->name('work');
+Route::get('/work/{project}', [PageController::class, 'project'])->name('work.show');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 Route::get('/robots.txt', function () {
     $body = implode("\n", [
         'User-agent: *',
         'Disallow: /login',
         'Disallow: /inbox',
+        'Disallow: /admin',
         '',
         'Sitemap: '.route('sitemap'),
         '',
@@ -61,20 +30,15 @@ Route::get('/robots.txt', function () {
 })->name('robots');
 
 Route::get('/sitemap.xml', function () {
-    $pages = [
-        ['home', '1.0'],
-        ['work', '0.9'],
-        ['work.ralph', '0.8'],
-        ['work.bali-cebelok', '0.8'],
-        ['work.pkkmb', '0.8'],
-        ['about', '0.7'],
-        ['contact', '0.7'],
-    ];
-
-    $urls = collect($pages)->map(fn ($p) => [
-        'loc' => route($p[0]),
-        'priority' => $p[1],
-    ]);
+    $urls = collect([
+        ['loc' => route('home'), 'priority' => '1.0'],
+        ['loc' => route('work'), 'priority' => '0.9'],
+    ])
+        ->concat(Project::published()->get()->map(fn (Project $p) => ['loc' => route('work.show', $p), 'priority' => '0.8']))
+        ->concat([
+            ['loc' => route('about'), 'priority' => '0.7'],
+            ['loc' => route('contact'), 'priority' => '0.7'],
+        ]);
 
     return response()
         ->view('sitemap', ['urls' => $urls])
@@ -85,7 +49,6 @@ Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
 
-// Admin — view contact form submissions.
 Route::get('/login', [AuthController::class, 'create'])
     ->middleware('guest')
     ->name('login');
@@ -94,18 +57,17 @@ Route::post('/login', [AuthController::class, 'store'])
     ->middleware(['guest', 'throttle:5,1'])
     ->name('login.store');
 
-Route::post('/logout', [AuthController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 
-Route::get('/inbox', [InboxController::class, 'index'])
-    ->middleware('auth')
-    ->name('inbox');
+    Route::get('/inbox', [InboxController::class, 'index'])->name('inbox');
+    Route::patch('/inbox/{contactSubmission}/toggle-replied', [InboxController::class, 'toggleReplied'])->name('inbox.toggle-replied');
+    Route::delete('/inbox/{contactSubmission}', [InboxController::class, 'destroy'])->name('inbox.destroy');
 
-Route::patch('/inbox/{contactSubmission}/toggle-replied', [InboxController::class, 'toggleReplied'])
-    ->middleware('auth')
-    ->name('inbox.toggle-replied');
-
-Route::delete('/inbox/{contactSubmission}', [InboxController::class, 'destroy'])
-    ->middleware('auth')
-    ->name('inbox.destroy');
+    Route::prefix('admin')->name('admin.')->scopeBindings()->group(function () {
+        Route::resource('projects', AdminProjectController::class)->except('show');
+        Route::post('projects/{project}/images', [ProjectImageController::class, 'store'])->name('projects.images.store');
+        Route::patch('projects/{project}/images/{image}', [ProjectImageController::class, 'update'])->name('projects.images.update');
+        Route::delete('projects/{project}/images/{image}', [ProjectImageController::class, 'destroy'])->name('projects.images.destroy');
+    });
+});

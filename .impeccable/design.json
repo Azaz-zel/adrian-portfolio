@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T00:00:00Z",
+  "title": "Design System: Clive Christian",
+  "extensions": {
+    "designFile": "https://www.figma.com/design/O94GIsIUDsIQzqvm7QivPi",
+    "colorMeta": {
+      "gold": { "role": "primary", "displayName": "Ralph de Vinca Gold", "canonical": "#A8834F", "tonalRamp": ["#2E2213", "#4A3820", "#66502F", "#7A5E33", "#A8834F", "#C3A174", "#DCC6A6", "#F1E8DA"] },
+      "gold-text": { "role": "primary", "displayName": "Deep Gold Ink", "canonical": "#7A5E33", "tonalRamp": ["#2E2213", "#4A3820", "#66502F", "#7A5E33", "#A8834F", "#C3A174", "#DCC6A6", "#F1E8DA"] },
+      "paper": { "role": "neutral", "displayName": "Gallery Paper", "canonical": "#FAFAF7", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "surface": { "role": "neutral", "displayName": "Warm Plate", "canonical": "#F2F0EB", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "ink": { "role": "neutral", "displayName": "Pressed Ink", "canonical": "#1A1A18", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "ink-hover": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#35342F", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "muted": { "role": "neutral", "displayName": "Smoke", "canonical": "#67625A", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "hair": { "role": "neutral", "displayName": "Hairline", "canonical": "#E6E2DA", "tonalRamp": ["#1A1A18", "#35342F", "#67625A", "#9A958C", "#C9C4BA", "#E6E2DA", "#F2F0EB", "#FAFAF7"] },
+      "danger": { "role": "semantic", "displayName": "Oxide Red", "canonical": "#A3352B", "tonalRamp": ["#2E0F0C", "#521B16", "#7A2820", "#A3352B", "#C25E54", "#D98F87", "#EDC2BD", "#F8E8E6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page h1 on Home, Contact, About and error pages; two lines at most." },
+      "display-case": { "displayName": "Display Case", "purpose": "Case study title only." },
+      "headline": { "displayName": "Headline", "purpose": "Featured project title, next-project link, closing call to action." },
+      "title": { "displayName": "Title", "purpose": "Section headings." },
+      "title-small": { "displayName": "Title Small", "purpose": "Project titles in lists and cards, layer tab names, wordmark." },
+      "body-lead": { "displayName": "Body Lead", "purpose": "Sublines and summaries in muted, capped at 34 to 40rem." },
+      "body": { "displayName": "Body", "purpose": "Running text and definition values." },
+      "ui": { "displayName": "UI", "purpose": "Nav links, buttons, field labels, text links." },
+      "small": { "displayName": "Small", "purpose": "Metadata, hints, captions, footer." },
+      "label": { "displayName": "Label", "purpose": "Definition terms, table heads, status tags; sentence case." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-strong", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Easing for button press and layer crossfade." },
+      { "name": "press", "value": "transform: scale(0.97) 140ms ease-out-strong", "purpose": "Button :active." },
+      { "name": "color", "value": "200ms ease", "purpose": "Button and text-link color changes." },
+      { "name": "field-focus", "value": "border-color 150ms ease", "purpose": "Input focus border shift." },
+      { "name": "layer-crossfade", "value": "opacity and filter 220ms ease-out-strong; inactive layer opacity 0, blur(2px)", "purpose": "Layer Pyramid screenshot swap." },
+      { "name": "reduced-motion", "value": "all transitions 0.01ms; layer blur removed", "purpose": "prefers-reduced-motion: reduce." }
+    ],
+    "focus": { "value": "outline: 2px solid #7A5E33; outline-offset: 3px", "purpose": "Global :focus-visible." },
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink pill for the single contact intent and form submits.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Start a conversation</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 24px; border-radius: 9999px; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15px; font-weight: 500; white-space: nowrap; cursor: pointer; border: 0; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease, color 200ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 2px solid #7A5E33; outline-offset: 3px; } .ds-btn-primary { background: #1A1A18; color: #FAFAF7; } .ds-btn-primary:hover { background: #35342F; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outlined pill for secondary navigation; fills with ink on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Read the case study</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 24px; border-radius: 9999px; border: 1px solid #1A1A18; background: transparent; color: #1A1A18; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease, color 200ms ease; } .ds-btn-ghost:hover { background: #1A1A18; color: #FAFAF7; } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid #7A5E33; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Hairline field with 2px corners; border moves to ink on focus, danger when invalid.",
+      "html": "<label class=\"ds-field-wrap\"><span class=\"ds-field-label\">Email <span class=\"ds-field-req\">required</span></span><input class=\"ds-field\" placeholder=\"you@example.com\"></label>",
+      "css": ".ds-field-wrap { display: flex; flex-direction: column; gap: 8px; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; color: #1A1A18; } .ds-field-label { font-size: 15px; font-weight: 500; } .ds-field-req { font-size: 13px; font-weight: 400; color: #67625A; margin-left: 8px; } .ds-field { display: block; width: 100%; border-radius: 2px; border: 1px solid #E6E2DA; background: rgba(255,255,255,0.6); padding: 12px 14px; font: inherit; font-size: 16px; color: #1A1A18; transition: border-color 150ms ease; } .ds-field::placeholder { color: rgba(103,98,90,0.7); } .ds-field:focus { border-color: #1A1A18; outline: none; } .ds-field[aria-invalid='true'] { border-color: #A3352B; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "72px paper bar: Gloock wordmark, UI links with gold current underline, primary pill.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Clive Christian</a><nav class=\"ds-nav-links\"><a href=\"#\" aria-current=\"page\">Work</a><a href=\"#\">About</a><a class=\"ds-nav-cta\" href=\"#\">Start a conversation</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 48px; background: #FAFAF7; border-bottom: 1px solid #E6E2DA; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; } .ds-nav-mark { font-family: 'Gloock', Georgia, serif; font-size: 24px; color: #1A1A18; text-decoration: none; } .ds-nav-links { display: flex; align-items: center; gap: 32px; } .ds-nav-links a { font-size: 15px; font-weight: 500; color: #1A1A18; text-decoration: none; text-underline-offset: 6px; } .ds-nav-links a[aria-current='page'] { text-decoration: underline; text-decoration-color: #A8834F; } .ds-nav-links a:focus-visible { outline: 2px solid #7A5E33; outline-offset: 3px; } .ds-nav-links .ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 12px 24px; border-radius: 9999px; background: #1A1A18; color: #FAFAF7; transition: background-color 200ms ease; } .ds-nav-links .ds-nav-cta:hover { background: #35342F; }"
+    },
+    {
+      "name": "Status Tag",
+      "kind": "chip",
+      "refersTo": "status-tag",
+      "description": "Pill tag in admin; ink border needs action, hairline border is resolved.",
+      "html": "<span class=\"ds-tag\">Awaiting reply</span> <span class=\"ds-tag ds-tag-done\">Replied</span>",
+      "css": ".ds-tag { display: inline-block; border-radius: 9999px; border: 1px solid #1A1A18; padding: 2px 10px; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 13px; font-weight: 600; color: #1A1A18; } .ds-tag-done { border-color: #E6E2DA; color: #67625A; }"
+    },
+    {
+      "name": "Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Warm surface mat behind every screenshot; image with 2px corners and a hairline.",
+      "html": "<div class=\"ds-plate\"><div class=\"ds-plate-img\"></div></div>",
+      "css": ".ds-plate { background: #F2F0EB; border-radius: 2px; padding: clamp(12px, 5vw, 72px); } .ds-plate-img { aspect-ratio: 2.07 / 1; width: 100%; border-radius: 2px; border: 1px solid #E6E2DA; background: #FAFAF7; }"
+    },
+    {
+      "name": "Layer Pyramid Tabs",
+      "kind": "custom",
+      "refersTo": "plate",
+      "description": "Surface / Function / Foundation tabs under a plate; active tab gets a 2px ink rule and swaps the screenshot.",
+      "html": "<div class=\"ds-layers\"><button class=\"ds-layer\" aria-pressed=\"true\"><span class=\"ds-layer-name\">Surface</span><span class=\"ds-layer-hint\">What people see and touch.</span></button><button class=\"ds-layer\" aria-pressed=\"false\"><span class=\"ds-layer-name\">Function</span><span class=\"ds-layer-hint\">What it does for them.</span></button><button class=\"ds-layer\" aria-pressed=\"false\"><span class=\"ds-layer-name\">Foundation</span><span class=\"ds-layer-hint\">What holds it up.</span></button></div>",
+      "css": ".ds-layers { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 48px; font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif; } .ds-layer { all: unset; cursor: pointer; padding-top: 20px; border-top: 1px solid #E6E2DA; padding-bottom: 1px; } .ds-layer[aria-pressed='true'] { border-top: 2px solid #1A1A18; padding-bottom: 0; } .ds-layer:focus-visible { outline: 2px solid #7A5E33; outline-offset: 3px; } .ds-layer-name { display: block; font-family: 'Gloock', Georgia, serif; font-size: 24px; color: #67625A; } .ds-layer[aria-pressed='true'] .ds-layer-name { color: #1A1A18; } .ds-layer-hint { display: block; margin-top: 8px; font-size: 14px; color: #67625A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Perfumer's Paper",
+    "overview": "This is the Ralph de Vinca world stripped down to three materials: warm off-white paper, near-black ink, and one aged gold used only on display words. Pages read like a fragrance house's printed note card. A heavy, high-contrast serif carries the voice, a quiet grotesk handles everything functional, and hairline rules divide the page. The site has no cards, no shadows and no tinted panels apart from the warm surface plate that frames each screenshot.\n\nDensity is low and the layout is generous: one idea per band, wide vertical gaps (160px between sections on desktop), and content capped at 1440px with 48px gutters. The work is the loudest thing on the page. Each project screenshot sits on a surface plate at full content width, and the chrome around it stays quiet.\n\nThe theme is light only, by decision. Ralph de Vinca is a light paper world, so there is no dark variant.",
+    "keyCharacteristics": [
+      "Paper ground, ink type, gold reserved for the last phrase of a display line.",
+      "Gloock 400 for every heading; Hanken Grotesk 400/500/600 for body and UI.",
+      "Hairline (1px) rules for structure; a 1px or 2px ink rule marks the active or featured row.",
+      "Pill buttons and status tags; 2px corners on images, plates and inputs.",
+      "Flat. Depth comes from the surface plate behind images, never from shadow.",
+      "Motion is limited to a press scale and a layer crossfade, and both collapse under reduced motion."
+    ],
+    "rules": [
+      { "name": "The Gold Is a Word Rule", "body": "Gold (#A8834F) appears only on display-size type and thin marks, and only on the closing phrase of a line. Any gold text below 24px uses gold-text instead. Never use gold as a button or a fill.", "section": "colors" },
+      { "name": "The One Fill Rule", "body": "Surface is the only background fill. Every other division on the page is a hairline.", "section": "colors" },
+      { "name": "The Sentence Case Rule", "body": "No uppercase and no letter-spaced labels. Labels are 13px semibold in sentence case.", "section": "typography" },
+      { "name": "The Single Weight Serif Rule", "body": "Gloock is used only at 400. Hierarchy comes from size, never from synthetic bold.", "section": "typography" },
+      { "name": "The Mat Not Shadow Rule", "body": "To lift an image, put it on a surface plate. Never add a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep gold (#A8834F) on display-size words and the active nav underline only. Use gold-text (#7A5E33) for any small gold text.",
+      "Do frame every project screenshot in a surface plate at 2px radius, with a hairline on the image. Portraits take the 2px radius without a plate.",
+      "Do use pills for buttons and status tags, and 2px corners for images, plates and inputs.",
+      "Do separate content with 1px hairline rules, and mark the current item with an ink rule.",
+      "Do keep one contact intent, labelled \"Start a conversation\", as the primary pill.",
+      "Do keep motion to the 140ms press scale and the 220ms layer crossfade, and let reduced motion collapse both.",
+      "Do use the 2px gold-text focus outline at a 3px offset for every focusable element."
+    ],
+    "donts": [
+      "Don't add box-shadows, gradients or a dark theme.",
+      "Don't wrap content in bordered or filled cards. Surface fill belongs only behind imagery.",
+      "Don't use uppercase or letter-spaced labels, or set Gloock at any weight other than 400.",
+      "Don't put gold on buttons, fills, body text, or anything below display size.",
+      "Don't use em dash characters in visible copy.",
+      "Don't split the hero into two equal halves or lay projects out as a row of three equal cards."
+    ]
+  }
+}

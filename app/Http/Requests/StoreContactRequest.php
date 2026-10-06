@@ -36,6 +36,6 @@ class StoreContactRequest extends FormRequest
      */
     protected function getRedirectUrl(): string
     {
-        return route('contact').'#send-message';
+        return route('contact');
     }
 }

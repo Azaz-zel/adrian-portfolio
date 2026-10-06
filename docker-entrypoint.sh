@@ -32,6 +32,11 @@ until php artisan migrate --force; do
     sleep 3
 done
 
+# Serves admin-uploaded project images from storage/app/public. Those files live
+# in the container, so they are lost on redeploy unless MEDIA_DISK points at
+# persistent or S3-compatible storage.
+php artisan storage:link --force
+
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache

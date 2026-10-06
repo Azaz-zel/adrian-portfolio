@@ -17,6 +17,10 @@ return Application::configure(basePath: dirname(__DIR__))
         // canonical and og:url as http:// on an https:// site — browsers then
         // block the stylesheet and JS as mixed content and the page renders bare.
         $middleware->trustProxies(at: '*');
+
+        $middleware->web(append: [
+            \App\Http\Middleware\HandleInertiaRequests::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

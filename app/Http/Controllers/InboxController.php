@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactSubmission;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class InboxController extends Controller
 {
-    public function index(): View
+    public function index(): Response
     {
-        $submissions = ContactSubmission::latest('id')->paginate(20);
-
-        $awaitingReplyCount = ContactSubmission::whereNull('replied_at')->count();
-
-        return view('pages.inbox', compact('submissions', 'awaitingReplyCount'));
+        return Inertia::render('Admin/Inbox', [
+            'submissions' => ContactSubmission::latest('id')->paginate(20)->through(fn (ContactSubmission $s) => [
+                'id' => $s->id,
+                'name' => $s->name,
+                'email' => $s->email,
+                'message' => $s->message,
+                'received' => $s->created_at->format('j M Y, H:i'),
+                'replied' => $s->replied_at !== null,
+            ]),
+        ]);
     }
 
     public function toggleReplied(ContactSubmission $contactSubmission): RedirectResponse

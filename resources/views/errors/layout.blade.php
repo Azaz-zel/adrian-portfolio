@@ -1,67 +1,28 @@
-@extends('layouts.app', ['title' => $title.' — Clive Christian'])
-
-@section('content')
-
-    <x-navbar />
-
-    <main id="main-content" class="flex min-h-screen items-center bg-gradient-to-b from-cream via-[#F9F7F2] to-white px-6 py-32 sm:px-8 lg:px-12">
-
-        <div class="mx-auto w-full max-w-7xl">
-
-            <div class="mx-auto max-w-3xl">
-
-                <p class="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
-                    Error {{ $code }}
-                </p>
-
-                <h1 class="mt-6 font-serif text-5xl leading-[0.95] tracking-[-0.03em] text-charcoal sm:text-6xl lg:text-7xl">
-                    {!! $heading !!}
-                </h1>
-
-                <p class="mt-8 max-w-xl text-sm leading-8 text-muted sm:text-[15px]">
-                    {{ $message }}
-                </p>
-
-                <div class="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-10">
-
-                    <a
-                        href="{{ route('home') }}"
-                        class="group inline-flex items-center gap-4 border-b border-charcoal pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-charcoal transition-all duration-300 hover:border-gold hover:text-gold"
-                    >
-
-                        <span class="text-base transition-transform duration-300 group-hover:-translate-x-1">
-                            ←
-                        </span>
-
-                        <span>
-                            Back to Home
-                        </span>
-
-                    </a>
-
-                    <a
-                        href="{{ route('work') }}"
-                        class="group inline-flex items-center gap-4 border-b border-charcoal/30 pb-2 text-[10px] font-medium uppercase tracking-[0.25em] text-muted transition-all duration-300 hover:border-gold hover:text-gold"
-                    >
-
-                        <span>
-                            See the Work
-                        </span>
-
-                        <span class="text-base transition-transform duration-300 group-hover:translate-x-1">
-                            →
-                        </span>
-
-                    </a>
-
-                </div>
-
-            </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>{{ $title }} | Clive Christian</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    {{ Vite::fonts() }}
+    @vite('resources/css/app.css')
+</head>
+<body>
+    <header class="border-b border-hair">
+        <div class="mx-auto flex h-16 max-w-[1440px] items-center px-5 md:h-[72px] md:px-12">
+            <a href="{{ url('/') }}" class="font-display text-2xl">Clive Christian</a>
         </div>
+    </header>
 
+    <main class="mx-auto flex min-h-[70dvh] max-w-[1440px] flex-col justify-center gap-7 px-5 py-24 md:px-12">
+        <h1 class="max-w-[16ch] font-display text-[clamp(2.5rem,6.2vw,4.75rem)] leading-[1.05]">{!! $heading !!}</h1>
+        <p class="max-w-[36rem] text-lg leading-relaxed text-muted">{{ $message }}</p>
+        <div class="flex flex-wrap items-center gap-6">
+            <a href="{{ url('/') }}" class="btn btn-primary">Back to home</a>
+            <a href="{{ url('/work') }}" class="text-link font-medium">See the work</a>
+        </div>
     </main>
-
-    <x-footer />
-
-@endsection
+</body>
+</html>

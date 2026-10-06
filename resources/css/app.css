@@ -1,239 +1,134 @@
 @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
 @source '../views/**/*.blade.php';
-@source '../js/**/*.js';
+@source '../js/**/*.jsx';
 
 @theme {
+    --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Gloock', Georgia, serif;
 
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    /* Ralph de Vinca, made minimal: paper, ink, and gold used only on display words. */
+    --color-paper: #FAFAF7;
+    --color-surface: #F2F0EB;
+    --color-ink: #1A1A18;
+    --color-muted: #67625A;
+    --color-gold: #A8834F;      /* 3.3:1 on paper: display sizes only */
+    --color-gold-text: #7A5E33; /* 5.8:1 on paper: small gold text */
+    --color-hair: #E6E2DA;
+    --color-danger: #A3352B;
 
-    --color-cream: #F5F1E8;
-    --color-warm-white: #FCFAF5;
-    --color-charcoal: #1C1A17;
-    --color-dark-earth: #2A2621;
-    --color-gold: #B08D57;
-    --color-soft-beige: #DED7CA;
-    --color-muted: #777168;
-
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-
-/* =========================================================
-   GLOBAL SCROLLING
-========================================================= */
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
-
-body {
-    margin: 0;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-
-/* =========================================================
-   IMAGES
-========================================================= */
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-
-/* =========================================================
-   KEYBOARD FOCUS
-
-   Form fields use focus:outline-none for a clean look, which would
-   otherwise leave keyboard users with no visible position at all.
-   :focus-visible only shows for keyboard navigation, never on click.
-========================================================= */
-
-:focus-visible {
-    outline: 2px solid #B08D57;
-    outline-offset: 3px;
-    border-radius: 1px;
-}
-
-input:focus-visible,
-textarea:focus-visible {
-    outline-offset: 4px;
-}
-
-
-/* =========================================================
-   SKIP LINK
-========================================================= */
-
-.skip-link {
-    position: absolute;
-    left: 1rem;
-    top: -100px;
-    z-index: 200;
-
-    padding: 0.75rem 1.25rem;
-
-    background: #1C1A17;
-    color: #F5F1E8;
-
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-
-    transition: top 200ms ease;
-}
-
-.skip-link:focus {
-    top: 1rem;
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
+@layer base {
     html {
-        scroll-behavior: auto;
+        scroll-padding-top: 88px;
     }
 
+    body {
+        @apply bg-paper font-sans text-ink antialiased;
+        overflow-x: hidden;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-gold-text);
+        outline-offset: 3px;
+    }
+
+    ::selection {
+        background: var(--color-ink);
+        color: var(--color-paper);
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex min-h-11 items-center justify-center rounded-full px-6 py-3 text-[15px] font-medium whitespace-nowrap;
+        transition: transform 140ms var(--ease-out-strong), background-color 200ms ease, color 200ms ease;
+    }
+
+    .btn:active {
+        transform: scale(0.97);
+    }
+
+    .btn-primary {
+        @apply bg-ink text-paper;
+    }
+
+    .btn-ghost {
+        @apply border border-ink text-ink;
+    }
+
+    .btn:disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .btn-primary:hover {
+            background: #35342f;
+        }
+
+        .btn-ghost:hover {
+            @apply bg-ink text-paper;
+        }
+    }
+
+    .text-link {
+        @apply underline decoration-hair decoration-1 underline-offset-[6px];
+        transition: text-decoration-color 200ms ease;
+    }
+
+    .text-link:hover {
+        text-decoration-color: currentColor;
+    }
+
+    .field {
+        @apply block w-full rounded-[2px] border border-hair bg-white/60 px-3.5 py-3 text-base text-ink placeholder:text-muted/70;
+        transition: border-color 150ms ease;
+    }
+
+    .field:focus {
+        @apply border-ink outline-none;
+    }
+
+    .field[aria-invalid='true'] {
+        @apply border-danger;
+    }
+
+    .skip-link {
+        @apply absolute top-[-100px] left-4 z-50 bg-ink px-5 py-3 text-sm text-paper;
+        transition: top 200ms ease;
+    }
+
+    .skip-link:focus {
+        top: 1rem;
+    }
+
+    /* Pyramid image stack: the active layer's screenshot fades in, the rest blur out. */
+    .layer-image {
+        transition: opacity 220ms var(--ease-out-strong), filter 220ms var(--ease-out-strong);
+    }
+
+    .layer-image[data-active='false'] {
+        opacity: 0;
+        filter: blur(2px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
     }
 
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-.mobile-menu {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-
-    transition:
-        opacity 400ms ease,
-        transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 500ms;
-}
-
-.mobile-menu.is-open {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-
-/* =========================================================
-   MOBILE MENU LINKS
-========================================================= */
-
-.mobile-menu-link {
-    opacity: 0;
-    transform: translateY(20px);
-
-    transition:
-        opacity 350ms ease,
-        transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
-        color 300ms ease,
-        padding-left 300ms ease;
-}
-
-.mobile-menu.is-open .mobile-menu-link {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mobile-menu.is-open .mobile-menu-link:nth-child(1) {
-    transition-delay: 80ms;
-}
-
-.mobile-menu.is-open .mobile-menu-link:nth-child(2) {
-    transition-delay: 140ms;
-}
-
-.mobile-menu.is-open .mobile-menu-link:nth-child(3) {
-    transition-delay: 200ms;
-}
-
-.mobile-menu.is-open .mobile-menu-link:nth-child(4) {
-    transition-delay: 260ms;
-}
-
-
-/* =========================================================
-   HAMBURGER
-========================================================= */
-
-.menu-line {
-    position: absolute;
-    left: 0;
-
-    width: 24px;
-    height: 1px;
-
-    background: #1C1A17;
-
-    transition:
-        top 300ms ease,
-        transform 300ms ease,
-        opacity 200ms ease;
-}
-
-.menu-line-1 {
-    top: 0;
-}
-
-.menu-line-2 {
-    top: 7px;
-}
-
-.menu-line-3 {
-    top: 14px;
-}
-
-
-/* =========================================================
-   HAMBURGER → X
-========================================================= */
-
-#mobile-menu-button.is-open .menu-line-1 {
-    top: 7px;
-    transform: rotate(45deg);
-}
-
-#mobile-menu-button.is-open .menu-line-2 {
-    opacity: 0;
-}
-
-#mobile-menu-button.is-open .menu-line-3 {
-    top: 7px;
-    transform: rotate(-45deg);
-}
-
-
-/* =========================================================
-   MOBILE HOVER
-========================================================= */
-
-.mobile-menu-link:hover {
-    color: #B08D57;
-    padding-left: 12px;
+    .layer-image[data-active='false'] {
+        filter: none;
+    }
 }

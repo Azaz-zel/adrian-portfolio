@@ -25,3 +25,8 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Impeccable review captures and decision pages (regenerated per review)
+/.impeccable/review/
+/.impeccable/mocks/
+/.impeccable/questions/

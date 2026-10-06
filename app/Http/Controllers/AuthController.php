@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class AuthController extends Controller
 {
-    public function create(): View
+    public function create(): Response
     {
-        return view('auth.login');
+        return Inertia::render('Auth/Login');
     }
 
     public function store(Request $request): RedirectResponse
@@ -29,7 +30,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('inbox'));
+        return redirect()->intended(route('admin.projects.index'));
     }
 
     public function destroy(Request $request): RedirectResponse
